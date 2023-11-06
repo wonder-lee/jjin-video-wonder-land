@@ -3,20 +3,20 @@ const RESPONSE_EXAMPLE = {
   listCount: 45,
   list: [
     {
-      channelName: "그랩어스푼 Grab A Spoon",
-      title: "현실적인 블로그 수익, 1년 운영한 티스토리 수익 공개",
+      channelName: "개이득",
+      title: "노아 AI, 뷰트랩(viewtrap) | 심플 무료 버전",
       publishedTime: 1,
       viewCount: 16944,
       browseId: "UCaHMzuTxdZ7QH1L-OEbaDsQ",
-      videoId: "xsNUr5NCv0c",
+      videoId: "W0al4fsBNTg",
       thumbnails: [
         {
-          url: "https://i.ytimg.com/vi/xsNUr5NCv0c/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBIQ_ORkEWyeFNmXpDSzLI70e3AHg",
+          url: "https://i.ytimg.com/vi/W0al4fsBNTg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYzJNv0MmkfvdMthJdyPAtcNEc3w",
           width: 360,
           height: 202,
         },
         {
-          url: "https://i.ytimg.com/vi/xsNUr5NCv0c/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBKVlDSe0asfW52C2T8SiAhNQ-Otw",
+          url: "https://i.ytimg.com/vi/W0al4fsBNTg/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDYzJNv0MmkfvdMthJdyPAtcNEc3w",
           width: 720,
           height: 404,
         },
