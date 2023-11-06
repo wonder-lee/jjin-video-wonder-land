@@ -12,8 +12,6 @@ const VideoCardModal = ({ data, isModalOpen, setIsModalOpen }: PropsType) => {
   const { title, thumbnails, subscribers, viewCount, publishedTime, point } =
     data;
 
-  console.log("data", data);
-
   return (
     <>
       <Style.ModalContainer
@@ -53,15 +51,14 @@ export default VideoCardModal;
 
 const Style = {
   ModalContainer: styled(Modal)`
-    max-width: 355px;
+    max-width: 315px;
     .ant-modal-body {
       text-align: center;
     }
   `,
 
   ThumbnailImg: styled.img`
-    max-width: 305px;
-    width: calc(100vw - 100px);
+    max-width: 255px;
   `,
 
   BrandLogoDiv: styled.div`
