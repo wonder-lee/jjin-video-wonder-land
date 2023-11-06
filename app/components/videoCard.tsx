@@ -1,8 +1,7 @@
 import { Dispatch } from "react";
-import { Card } from "antd";
+import { Card, Tag } from "antd";
 import styled from "styled-components";
-
-const { Meta } = Card;
+import { StarTwoTone } from "@ant-design/icons";
 
 type PropsType = {
   data: any;
@@ -16,8 +15,16 @@ const VideoCard = ({
   setIsModalOpen,
   setSelectedCardIndex,
 }: PropsType) => {
-  const { title, thumbnails, subscribers, viewCount, publishedTime, point } =
-    data;
+  const {
+    title,
+    thumbnails,
+    subscribers,
+    viewCount,
+    publishedTime,
+    point,
+    channelName,
+    channelThumbnail,
+  } = data;
 
   const onClickCard = () => {
     setSelectedCardIndex(index);
@@ -27,12 +34,23 @@ const VideoCard = ({
     <Style.CardContainer
       cover={<img alt={`${title}_thumbnail`} src={thumbnails[0]["url"]} />}
       onClick={onClickCard}
+      bordered={false}
     >
-      <Meta title={title} />
-      <span>{`점수 : ${point} 점`}</span>
-      <span>{`구독자 : ${subscribers}명`}</span>
-      <span>{`조회수 : ${viewCount}명`}</span>
-      <span>{`기간 : ${publishedTime}주`}</span>
+      <Style.CardPointArea>
+        <Tag bordered={false} color="cyan">
+          <StarTwoTone twoToneColor="#5cdbd3" /> <span>{point}</span>
+        </Tag>
+      </Style.CardPointArea>
+      <Style.CardContentArea>
+        <img src={channelThumbnail.url} />
+        <div>
+          <b>{title}</b>
+          <div>{channelName}</div>
+          <Style.CardDescriptionArea>
+            구독자 {subscribers}• 조회수 {viewCount} • {publishedTime}주 전
+          </Style.CardDescriptionArea>
+        </div>
+      </Style.CardContentArea>
     </Style.CardContainer>
   );
 };
@@ -41,16 +59,35 @@ export default VideoCard;
 
 const Style = {
   CardContainer: styled(Card)`
+    position: relative;
     cursor: pointer;
     max-width: 420px;
-    margin: 25px auto;
-    .ant-card-meta-title {
-      margin-bottom: 10px;
-    }
+    margin: 80px auto;
+    box-shadow: unset !important;
     .ant-card-body {
-      span {
-        display: block;
-      }
+      padding: unset !important;
     }
+  `,
+  CardContentArea: styled.div`
+    padding-top: 15px;
+    display: flex;
+    gap: 10px;
+
+    img {
+      height: 35px;
+      width: 35px;
+      border: 1px solid #5cdbd3;
+      border-radius: 50px;
+    }
+  `,
+  CardDescriptionArea: styled.div`
+    color: #8c8c8c;
+  `,
+  CardPointArea: styled.div`
+    /* width: 100px; */
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    color: #5cdbd3;
   `,
 };
