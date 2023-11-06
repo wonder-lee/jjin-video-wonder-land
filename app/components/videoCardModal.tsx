@@ -1,7 +1,6 @@
 import { Dispatch } from "react";
 import { Modal } from "antd";
 import styled from "styled-components";
-import { YoutubeOutlined } from "@ant-design/icons";
 
 type PropsType = {
   data: any;

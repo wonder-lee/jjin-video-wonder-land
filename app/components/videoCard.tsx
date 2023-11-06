@@ -41,6 +41,7 @@ export default VideoCard;
 
 const Style = {
   CardContainer: styled(Card)`
+    cursor: pointer;
     max-width: 420px;
     margin: 25px auto;
     .ant-card-meta-title {
