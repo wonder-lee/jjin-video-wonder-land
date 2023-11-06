@@ -1,6 +1,6 @@
 import StyledComponentsRegistry from "../lib/AntdRegistry";
-// import './globals.css'
 import { Inter } from "next/font/google";
+import { ConfigProvider } from "antd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,9 +16,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-      </body>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#5cdbd3",
+          },
+        }}
+      >
+        <body className={inter.className}>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </body>
+      </ConfigProvider>
     </html>
   );
 }
