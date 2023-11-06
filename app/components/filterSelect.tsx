@@ -24,6 +24,12 @@ export default FilterSelect;
 
 const Style = {
   FilterSelectContainer: styled(Select)`
-    width: 140px;
+    width: 90px;
+    .ant-select-selection-item {
+      font-size: 10px;
+    }
+    .ant-select-arrow {
+      display: none;
+    }
   `,
 };
