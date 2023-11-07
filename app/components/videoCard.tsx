@@ -4,15 +4,15 @@ import styled from "styled-components";
 import { StarTwoTone } from "@ant-design/icons";
 
 type PropsType = {
-  data: any;
+  data?: any;
   index: number;
-  setIsModalOpen: Dispatch<boolean>;
+  setOpen: Dispatch<boolean>;
   setSelectedCardIndex: Dispatch<number>;
 };
 const VideoCard = ({
   data,
   index,
-  setIsModalOpen,
+  setOpen,
   setSelectedCardIndex,
 }: PropsType) => {
   const {
@@ -28,29 +28,24 @@ const VideoCard = ({
 
   const onClickCard = () => {
     setSelectedCardIndex(index);
-    setIsModalOpen(true);
+    setOpen(true);
   };
   return (
-    <Style.CardContainer
-      cover={<img alt={`${title}_thumbnail`} src={thumbnails[0]["url"]} />}
-      onClick={onClickCard}
-      bordered={false}
-    >
-      <Style.CardPointArea>
-        <Tag bordered={false} color="cyan">
-          <StarTwoTone twoToneColor="#5cdbd3" /> <span>{point}</span>
+    <Style.CardContainer onClick={onClickCard}>
+      <Style.VideoArea>
+        <img alt={`${title}_thumbnail`} src={thumbnails[0]["url"]} />
+        <p>{title.length > 15 ? title.substring(0, 13) + "..." : title}</p>
+      </Style.VideoArea>
+      <Style.DataArea>
+        <Tag color={index === 0 ? "red" : "cyan"}>
+          <span>
+            {index + 1}위 / {point} 점
+          </span>
         </Tag>
-      </Style.CardPointArea>
-      <Style.CardContentArea>
-        <img src={channelThumbnail.url} />
-        <div>
-          <b>{title}</b>
-          <div>{channelName}</div>
-          <Style.CardDescriptionArea>
-            구독자 {subscribers}• 조회수 {viewCount} • {publishedTime}주 전
-          </Style.CardDescriptionArea>
-        </div>
-      </Style.CardContentArea>
+        <div>{subscribers}명</div>
+        <div>{viewCount}회</div>
+        <div>{publishedTime}주</div>
+      </Style.DataArea>
     </Style.CardContainer>
   );
 };
@@ -58,14 +53,40 @@ const VideoCard = ({
 export default VideoCard;
 
 const Style = {
-  CardContainer: styled(Card)`
-    position: relative;
+  CardContainer: styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
     cursor: pointer;
-    max-width: 420px;
-    margin: 80px auto;
-    box-shadow: unset !important;
-    .ant-card-body {
-      padding: unset !important;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #e6fffb;
+    }
+  `,
+  VideoArea: styled.div`
+    img {
+      width: 60%;
+      border-radius: 5px;
+    }
+
+    p {
+      margin: unset;
+      font-size: 10px;
+      font-weight: 600;
+      color: #8c8c8c;
+    }
+  `,
+  DataArea: styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    text-align: right;
+    .ant-tag {
+      margin: unset;
     }
   `,
   CardContentArea: styled.div`
@@ -84,10 +105,15 @@ const Style = {
     color: #8c8c8c;
   `,
   CardPointArea: styled.div`
-    /* width: 100px; */
     position: absolute;
     top: 10px;
     right: 0px;
+    color: #5cdbd3;
+  `,
+  CardRankArea: styled.div`
+    position: absolute;
+    top: 10px;
+    left: 10px;
     color: #5cdbd3;
   `,
 };
