@@ -25,7 +25,7 @@ const ShareDrawer = ({ open, setOpen }: PropsType) => {
     <div>
       <Drawer
         title="Basic Drawer"
-        placement="bottom"
+        placement="top"
         closable={false}
         onClose={onClose}
         open={open}
