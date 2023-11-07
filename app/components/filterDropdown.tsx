@@ -11,7 +11,11 @@ type PropsType = {
 
 const FilterDropdown = ({ items, icon, name }: PropsType) => {
   return (
-    <Style.FilterDropdownContainer menu={{ items }} trigger={["click"]}>
+    <Style.FilterDropdownContainer
+      placement="top"
+      menu={{ items }}
+      trigger={["click"]}
+    >
       <Button>
         <div>{icon}</div>
         <div>{name}</div>
@@ -28,7 +32,7 @@ const Style = {
     height: auto;
     border-color: white;
     box-shadow: unset;
-    font-size: 12px;
+    font-size: 10px;
     color: #8c8c8c;
 
     svg {
