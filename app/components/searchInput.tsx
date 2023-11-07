@@ -7,7 +7,7 @@ const { Search } = Input;
 const SearchInput = () => {
   return (
     <Style.SearchInputContainer
-      placeholder="단어를 2개 이상 입력해주세요."
+      placeholder="키워드를 2개 이상 입력해주세요."
       enterButton
     />
   );
@@ -17,7 +17,7 @@ export default SearchInput;
 
 const Style = {
   SearchInputContainer: styled(Search)`
-    padding: 15px 25px 0px 25px;
+    padding: 15px 15px;
 
     input {
       height: 45px;
