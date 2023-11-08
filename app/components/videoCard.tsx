@@ -1,4 +1,5 @@
 import { Dispatch } from "react";
+import Image from "next/image";
 import { Tag } from "antd";
 import styled from "styled-components";
 
@@ -32,7 +33,12 @@ const VideoCard = ({
   return (
     <Style.CardContainer onClick={onClickCard}>
       <Style.VideoArea>
-        <img alt={`${title}_thumbnail`} src={thumbnails[0]["url"]} />
+        <Image
+          src={thumbnails[0]["url"]}
+          alt={`${title}_thumbnail`}
+          width={160}
+          height={100}
+        />
         <p>{title.length > 15 ? title.substring(0, 13) + "..." : title}</p>
       </Style.VideoArea>
       <Style.DataArea>
@@ -67,7 +73,7 @@ const Style = {
   `,
   VideoArea: styled.div`
     img {
-      width: 60%;
+      /* width: 60%; */
       border-radius: 5px;
     }
 

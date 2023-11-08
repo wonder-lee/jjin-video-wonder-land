@@ -34,11 +34,9 @@ const VideoCardModal = ({ data, isModalOpen, setIsModalOpen }: PropsType) => {
         </div>
         <Style.BrandLogoDiv>
           <div>
-            {/* <img src="youtube_logo_04.png" /> */}
             <span>채널 보기</span>
           </div>
           <div>
-            <img src="kakaotalk_logo.png" />
             <span>카톡 저장</span>
           </div>
         </Style.BrandLogoDiv>

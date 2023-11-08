@@ -1,4 +1,5 @@
 import { Dispatch } from "react";
+import Image from "next/image";
 import { Card, Tag } from "antd";
 import styled from "styled-components";
 import { StarTwoTone } from "@ant-design/icons";
@@ -32,7 +33,14 @@ const VideoCard = ({
   };
   return (
     <Style.CardContainer
-      cover={<img alt={`${title}_thumbnail`} src={thumbnails[0]["url"]} />}
+      cover={
+        <Image
+          src={thumbnails[0]["url"]}
+          alt={`${title}_thumbnail`}
+          width={500} // 이미지 너비
+          height={300} // 이미지 높이
+        />
+      }
       onClick={onClickCard}
       bordered={false}
     >
@@ -43,7 +51,12 @@ const VideoCard = ({
         </Tag>
       </Style.CardPointArea>
       <Style.CardContentArea>
-        <img src={channelThumbnail.url} />
+        <Image
+          src={thumbnails[0]["url"]}
+          alt={`${title}_thumbnail`}
+          width={500} // 이미지 너비
+          height={300} // 이미지 높이
+        />
         <div>
           <b>{title}</b>
           <div>{channelName}</div>

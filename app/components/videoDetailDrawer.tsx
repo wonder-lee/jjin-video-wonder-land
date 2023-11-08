@@ -1,4 +1,5 @@
 import React, { Dispatch } from "react";
+import Image from "next/image";
 import { isMobile } from "react-device-detect";
 import { Button, Drawer } from "antd";
 import styled from "styled-components";
@@ -67,13 +68,23 @@ const VideoDetailDrawer = ({ videoData, open, setOpen }: PropsType) => {
           <Style.DrawerFooterContainer>
             <Button size="large" onClick={onClickYoutubeLogo}>
               <Style.FooterButtonArea>
-                <img src="./youtube_logo.png" alt="kakaotalk_logo" />
+                <Image
+                  src="/youtube_logo.png"
+                  alt="youtube_logo"
+                  width={25}
+                  height={25}
+                />
                 보러가기
               </Style.FooterButtonArea>
             </Button>
             <Button size="large" onClick={onClickKakaoLogo}>
               <Style.FooterButtonArea>
-                <img src="./kakaotalk_logo.png" alt="kakaotalk_logo" />
+                <Image
+                  src="/kakaotalk_logo.png"
+                  alt="kakaotalk_logo"
+                  width={25}
+                  height={25}
+                />
                 공유하기
               </Style.FooterButtonArea>
             </Button>
@@ -90,7 +101,12 @@ const VideoDetailDrawer = ({ videoData, open, setOpen }: PropsType) => {
           allowFullScreen
         />
         <Style.VideoDetailContentArea>
-          <img src={channelThumbnail.url} alt="channelThumbnail" />
+          <Image
+            src={channelThumbnail.url}
+            alt="channelThumbnail"
+            width={35}
+            height={35}
+          />
           <Style.VideoDetailTextArea>
             <b>{title}</b>
             <Style.VideoDescriptionText>
@@ -144,9 +160,5 @@ const Style = {
     justify-content: space-between;
     align-items: center;
     gap: 5px;
-
-    img {
-      width: 25px;
-    }
   `,
 };
