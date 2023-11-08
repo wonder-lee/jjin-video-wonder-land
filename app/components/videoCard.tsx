@@ -36,8 +36,8 @@ const VideoCard = ({
         <Image
           src={thumbnails[0]["url"]}
           alt={`${title}_thumbnail`}
-          width={160}
-          height={100}
+          width={140}
+          height={80}
         />
         <p>{title.length > 15 ? title.substring(0, 13) + "..." : title}</p>
       </Style.VideoArea>
