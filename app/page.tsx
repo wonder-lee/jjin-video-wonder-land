@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { browserName } from "react-device-detect";
 import { List } from "antd";
 import styled from "styled-components";
 import AnimationTitle from "./components/animationTitle";
@@ -20,7 +21,7 @@ const Home = function Home() {
         <AnimationTitle />
       </Style.LeftArea>
       <Style.RightArea>
-        <Style.ContentContainer>
+        <Style.ContentContainer browserName={browserName}>
           <Style.VideoCardListArea>
             <List
               dataSource={RESPONSE_EXAMPLE.list}
@@ -90,7 +91,7 @@ const Style = {
     }
   `,
   RightArea: styled.div``,
-  ContentContainer: styled.div`
+  ContentContainer: styled.div<{ browserName: string }>`
     max-width: 375px;
     margin: 0 auto;
     padding: 15px 25px;
@@ -102,7 +103,10 @@ const Style = {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     @media only screen and (max-width: 600px) {
-      height: calc(100vh - 265px);
+      height: ${(props) =>
+        props.browserName === "KAKAOTALK"
+          ? "calc(115vh - 265px)"
+          : "calc(105vh - 265px)"};
       box-shadow: unset;
     }
   `,
@@ -131,7 +135,7 @@ const Style = {
   UserControllerArea: styled.div``,
   FiltersArea: styled.div`
     @media only screen and (max-width: 600px) {
-      padding-top: 25px;
+      padding-top: 10px;
     }
   `,
   FiltersScroll: styled.div`
