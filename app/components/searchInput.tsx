@@ -17,7 +17,7 @@ export default SearchInput;
 
 const Style = {
   SearchInputContainer: styled(Search)`
-    padding: 15px 15px;
+    padding: 10px 10px 0px 10px;
 
     input {
       height: 45px;
