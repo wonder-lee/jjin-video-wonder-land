@@ -1,19 +1,17 @@
 "use client";
 import { useState } from "react";
+import { List } from "antd";
 import styled from "styled-components";
 import AnimationTitle from "./components/animationTitle";
 import SearchInput from "./components/searchInput";
 import VideoCard from "./components/videoCard";
-import VideoCardModal from "./components/videoCardModal";
 import FilterDropdown from "./components/filterDropdown";
-import ShareDrawer from "./components/shareDrawer";
+import VideoDetailDrawer from "./components/videoDetailDrawer";
 import { FILTERS } from "./constants/filters";
 import { RESPONSE_EXAMPLE } from "./constants/responseExample";
-import { List } from "antd";
 
 const Home = function Home() {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,7 +36,11 @@ const Home = function Home() {
               )}
             />
           </Style.VideoCardListArea>
-          <ShareDrawer open={open} setOpen={setOpen} />
+          <VideoDetailDrawer
+            videoData={RESPONSE_EXAMPLE.list[selectedCardIndex]}
+            open={open}
+            setOpen={setOpen}
+          />
         </Style.ContentContainer>
         <Style.UserControllerContainer>
           <Style.UserControllerArea>
@@ -73,8 +75,8 @@ const Style = {
     }
   `,
   LeftArea: styled.div`
-    padding-top: 30vh;
-    width: 300px;
+    padding-top: 25vh;
+    width: 350px;
     @media only screen and (max-width: 600px) {
       display: none;
     }
