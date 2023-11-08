@@ -1,6 +1,7 @@
-import StyledComponentsRegistry from "../lib/AntdRegistry";
+import Script from "next/script";
 import { Noto_Sans_KR } from "next/font/google";
 import { ConfigProvider } from "antd";
+import StyledComponentsRegistry from "../lib/AntdRegistry";
 
 const notoSans = Noto_Sans_KR({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="kor">
       <head>
-        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        <Script src="https://developers.kakao.com/sdk/js/kakao.js"></Script>
       </head>
       <ConfigProvider
         theme={{
