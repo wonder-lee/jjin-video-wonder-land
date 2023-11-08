@@ -24,16 +24,19 @@ const Home = function Home() {
           <Style.VideoCardListArea>
             <List
               dataSource={RESPONSE_EXAMPLE.list}
-              renderItem={(data, index) => (
-                <List.Item>
-                  <VideoCard
-                    data={data}
-                    index={index}
-                    setOpen={setOpen}
-                    setSelectedCardIndex={setSelectedCardIndex}
-                  />
-                </List.Item>
-              )}
+              renderItem={(data, index) => {
+                const { videoId } = data;
+                return (
+                  <List.Item key={`${videoId}_${index}`}>
+                    <VideoCard
+                      data={data}
+                      index={index}
+                      setOpen={setOpen}
+                      setSelectedCardIndex={setSelectedCardIndex}
+                    />
+                  </List.Item>
+                );
+              }}
             />
           </Style.VideoCardListArea>
           <VideoDetailDrawer
@@ -46,10 +49,15 @@ const Home = function Home() {
           <Style.UserControllerArea>
             <Style.FiltersArea>
               <Style.FiltersScroll>
-                {FILTERS.map((FILTER) => {
+                {FILTERS.map((FILTER, index) => {
                   const { items, icon, name } = FILTER;
                   return (
-                    <FilterDropdown items={items} icon={icon} name={name} />
+                    <FilterDropdown
+                      items={items}
+                      icon={icon}
+                      name={name}
+                      key={`${name}_${index}`}
+                    />
                   );
                 })}
               </Style.FiltersScroll>
