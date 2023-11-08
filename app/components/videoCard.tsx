@@ -1,7 +1,6 @@
 import { Dispatch } from "react";
-import { Card, Tag } from "antd";
+import { Tag } from "antd";
 import styled from "styled-components";
-import { StarTwoTone } from "@ant-design/icons";
 
 type PropsType = {
   data?: any;
