@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { browserName } from "react-device-detect";
 import { List } from "antd";
 import styled from "styled-components";
@@ -13,7 +13,14 @@ import { RESPONSE_EXAMPLE } from "./constants/responseExample";
 
 const Home = function Home() {
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+  const [currenBrowser, setCurrentBrowser] = useState("");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!!browserName) {
+      setCurrentBrowser(browserName);
+    }
+  }, [browserName]);
 
   return (
     <Style.MainContainer>
@@ -21,7 +28,7 @@ const Home = function Home() {
         <AnimationTitle />
       </Style.LeftArea>
       <Style.RightArea>
-        <Style.ContentContainer browserName={browserName}>
+        <Style.ContentContainer browserName={currenBrowser}>
           <Style.VideoCardListArea>
             <List
               dataSource={RESPONSE_EXAMPLE.list}
